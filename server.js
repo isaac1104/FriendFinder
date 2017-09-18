@@ -35,6 +35,11 @@ var friends =[
     name: "Snow White",
     photo: "https://lumiere-a.akamaihd.net/v1/images/character_princess_snowwhite_b6c31f4d.jpeg?region=0,0,563,300",
     scores: [3,3,5,5,4,1,3,4,3,5]
+  },
+  {
+    name: "Tarzan",
+    photo: "http://weknowyourdreams.com/single/tarzan/tarzan-06",
+    scores: [5,4,4,1,2,4,3,4,1,1]
   }
 ];
 
