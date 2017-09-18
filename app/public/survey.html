@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Survey</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Questions</h2>
+    <hr>
+    <h3>About You</h3>
+    <h4>Name (Required)</h4>
+    <input type="text" class="form-control" id="name" required>
+    <h4>Link to Photo Image (Required)</h4>
+    <input type="text" class="form-control" id="photo" required>
+    <hr>
+    <h3>Question 1</h3>
+    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+    <select id="q1">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 2</h3>
+    <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+    <select id="q2">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 3</h3>
+    <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+    <select id="q3">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 4</h3>
+    <h4>You rarely do something just out of sheer curiosity.</h4>
+    <select id="q4">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 5</h3>
+    <h4>People can rarely upset you.</h4>
+    <select id="q5">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 6</h3>
+    <h4>It is often difficult for you to relate to other people's feelings.</h4>
+    <select id="q6">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 7</h3>
+    <h4>In a discussion, truth should be more important than people's sensitivities.</h4>
+    <select id="q7">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 8</h3>
+    <h4>You rarely get carried away by fantasies and ideas.</h4>
+    <select id="q8">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 9</h3>
+    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+    <select id="q9">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <h3>Question 10</h3>
+    <h4>You feel more energetic after spending time with a group of people.</h4>
+    <select id="q10">
+        <option value></option>
+        <option value=1>1 (Strongly Disagree)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5 (Strongly Agree)</option>
+      </select>
+    <hr>
+    <button id="btn" class="btn btn-primary btn-block btn-lg" type="button" name="button">Submit</button>
+  </div>
+
+  <div id="results" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><strong>Your New Friend!</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="friendName"></h2>
+          <img id="friendPhoto" src="" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $("#btn").on("click", function(event) {
+      event.preventDefault();
+
+      var newFriend = {
+        name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        scores: [$("#q1").val().trim(), $("#q2").val().trim(), $("#q3").val().trim(), $("#q4").val().trim(), $("#q5").val().trim(), $("#q6").val().trim(), $("#q7").val().trim(), $("#q8").val().trim(), $("#q9").val().trim(), $("#q10").val().trim()]
+      };
+
+      $.post("/api/friends", newFriend)
+        .done(function(data) {
+          console.log(data);
+          $("#results").modal('toggle');
+          $("#friendName").text(data.name);
+          $("#friendPhoto").attr("src", data.photo);
+        });
+    });
+  </script>
+</body>
+
+</html>
