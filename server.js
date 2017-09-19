@@ -28,7 +28,7 @@ var friends =[
   },
   {
     name: "Lightning McQueen",
-    photo: "https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-20810-1fndzcd_41017374.jpeg?region=0,0,600,600",
+    photo: "https://upload.wikimedia.org/wikipedia/en/8/82/Lightning_McQueen.png",
     scores: [4,3,5,1,2,5,5,3,2,5]
   },
   {
